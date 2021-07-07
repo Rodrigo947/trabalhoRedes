@@ -4,7 +4,13 @@ import socket
 # Criando o socket
 s = socket.socket()
 
-# IP e Porta do servidor
+
+'''
+IP e Porta do servidor
+-> Se esse arquivo for executado por docker-compose o host irá receber o IP por meio
+de uma variável de ambiente. 
+-> Se o arquivo for executado direto na pasta, o host irá receber o IP localhost
+'''
 host = os.environ.get("IP_SERVER") if os.environ.get(
     "IP_SERVER") else 'localhost'
 porta = 9000
