@@ -39,6 +39,11 @@ Ao executar o <code>docker-compose up</code> as seguintes máquianas são criada
     docker exec -it NOME_DO_CONTAINER /bin/bash
     python cliente.py
     ```
+### Comandos para o servidor
+  1. **echo**: ao receber esse comando, o servidor espera o cliente mandar uma mensagem que será replicada.
+  2. **quit**: o servidor encerra a conexão com o cliente.
+
+Qualquer comando diferente o servidor irá encerrar a conexão com o cliente.
 
 
 
