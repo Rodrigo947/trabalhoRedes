@@ -8,7 +8,7 @@
   3. No outro execute <code>python cliente/cliente.py</code>
 ### Por meio do Docker:
 A execução pelo Docker foi implementada para simular a comunicação entre computadores de uma mesma rede.
-Ao executar o <code>docker-compose up</code> as seguintes máquianas são criadas:
+Ao usar esse ambiente, os seguintes containers são criados:
 <table>
   <tr>
     <td>NOME DO CONTAINER</td>
@@ -32,9 +32,9 @@ Ao executar o <code>docker-compose up</code> as seguintes máquianas são criada
   </tr>
 </table>
 
-1. Com o docker instalado na sua máquina junto com o docker-compose, siga os passos:
-2. Execute <code>docker-compose up</code>
-3. Em um terminal para cada máquina cliente execute:
+Com o docker instalado na sua máquina junto com o docker-compose, siga os passos:
+1. Execute <code>docker-compose up</code> na raiz do projeto.
+2. Em um terminal para cada máquina cliente execute:
     ```
     docker exec -it NOME_DO_CONTAINER /bin/bash
     python cliente.py
