@@ -1,0 +1,60 @@
+services:
+  servidor:
+    container_name: servidor
+    build:
+      context: ./servidor
+    volumes: 
+      - ./servidor/servidor.py:/code/servidor.py
+    ports: 
+      - 9000:9000
+    networks:
+      redes:
+        ipv4_address: 192.168.10.2
+
+  cliente1:
+    container_name: cliente1
+    build:
+      context: ./cliente
+    volumes: 
+      - ./cliente/cliente.py:/code/cliente.py
+      - ./cliente/loop.py:/code/loop.py
+    networks:
+      redes:
+        ipv4_address: 192.168.10.10
+    depends_on:
+      - servidor
+  
+  cliente2:
+    container_name: cliente2
+    build:
+      context: ./cliente
+    volumes: 
+      - ./cliente/cliente.py:/code/cliente.py
+      - ./cliente/loop.py:/code/loop.py
+    networks:
+      redes:
+        ipv4_address: 192.168.10.20
+    depends_on:
+      - servidor
+
+  cliente3:
+    container_name: cliente3
+    build:
+      context: ./cliente
+    volumes: 
+      - ./cliente/cliente.py:/code/cliente.py
+      - ./cliente/loop.py:/code/loop.py
+    networks:
+      redes:
+        ipv4_address: 192.168.10.30
+    depends_on:
+      - servidor
+
+networks:
+  redes:
+    driver: bridge
+    name: redes
+    ipam:
+      driver: default
+      config:
+        - subnet: 192.168.10.0/24
